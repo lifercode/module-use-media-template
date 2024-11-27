@@ -41,12 +41,38 @@ const goo = async (first) => {
 };
 
 app.post("/use", async (req, res) => {
+
+  req?.body?.inputsData?.data
+
+  const data = req?.body?.inputsData?.data || '{}'
+  console.log({data})
+  const isItemsString = typeof data === 'string'
+  console.log({isItemsString})
+  const payload = isItemsString ? JSON.parse(data) : data
+  console.log({payload})
+
+
   console.log(req?.body)
   const items = await goo('http://host.docker.internal:3001/api/media-templates/' + (req?.body?.inputsData?.templateid || ''))
   console.log({items})
 
+  const final = items?.map((item) => {
+    if(payload[item.id]) {
+      return {
+        ...item,
+        data: {
+          ...item.data,
+          src: payload[item.id]
+        }
+      }
+    } else {
+      return item
+    }
+  })
+  console.log({final})
+
   res.json({
-    items: items || '[]'
+    items: final || '[]'
   })
 });
 
