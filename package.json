@@ -1,0 +1,17 @@
+{
+  "name": "module-use-media-template",
+  "version": "1.0.0",
+  "description": "...",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "opensource-modules",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "ollama": "^0.5.1"
+  }
+}

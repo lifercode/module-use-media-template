@@ -1,0 +1,13 @@
+services:
+  text:
+    build: .
+    ports:
+      - "3050:3050"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
