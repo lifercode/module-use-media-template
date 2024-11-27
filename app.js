@@ -56,7 +56,7 @@ app.post("/use", async (req, res) => {
   const items = await goo('http://host.docker.internal:3001/api/media-templates/' + (req?.body?.inputsData?.templateid || ''))
   console.log({items})
 
-  const final = items?.map((item) => {
+  const final = (JSON.parse(items) || [])?.map((item) => {
     if(payload[item.id]) {
       return {
         ...item,
@@ -72,7 +72,7 @@ app.post("/use", async (req, res) => {
   console.log({final})
 
   res.json({
-    items: final || '[]'
+    items: JSON.stringify(final) || '[]'
   })
 });
 
