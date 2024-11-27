@@ -42,7 +42,7 @@ const goo = async (first) => {
 
 app.post("/use", async (req, res) => {
   console.log(req?.body)
-  const items = await goo('http://localhost:3001/api/media-templates/' + (req?.body?.inputsData?.templateId || ''))
+  const items = await goo('http://localhost:3001/api/media-templates/' + (req?.body?.inputsData?.templateid || ''))
   console.log({items})
 
   res.json({
