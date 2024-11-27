@@ -22,6 +22,7 @@ async function makeRequest(url, options = {}) {
 
 // Exemplo de uso:
 const goo = async (first) => {
+  console.log({first})
   const url = first;
   const options = {
     method: 'GET', // ou 'POST', 'PUT', etc.
@@ -41,6 +42,7 @@ const goo = async (first) => {
 
 app.post("/use", async (req, res) => {
   const items = await goo('http://localhost:3001/api/media-templates/' + (req?.body?.inputsData?.templateId || ''))
+  console.log({items})
 
   res.json({
     items: items || '[]'
