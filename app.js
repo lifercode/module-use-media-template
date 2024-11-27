@@ -62,7 +62,7 @@ app.post("/use", async (req, res) => {
         ...item,
         data: {
           ...item.data,
-          src: payload[item.id]
+          content: payload[item.id]
         }
       }
     } else {
