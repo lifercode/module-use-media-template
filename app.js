@@ -51,6 +51,7 @@ app.post("/use", async (req, res) => {
   console.log({isItemsString})
   const payload = isItemsString ? JSON.parse(data) : data
   console.log({payload})
+  console.log('process.env🚀', process.env)
 
 
   console.log(req?.body)
