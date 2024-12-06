@@ -55,7 +55,7 @@ app.post("/use", async (req, res) => {
 
 
   console.log(req?.body)
-  const items = await goo(`${process.env.RUGG_API_URL}/media-templates/${(req?.body?.inputsData?.templateid || '')}`)
+  const items = await goo(`https://rugg.services/api/media-templates/${(req?.body?.inputsData?.templateid || '')}`)
   console.log({items})
 
   const final = (JSON.parse(items) || [])?.map((item) => {
